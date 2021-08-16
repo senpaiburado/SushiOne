@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>OrderList.qml</file>
+        <file>pics/tasks.svg</file>
+        <file>pics/addTasks.svg</file>
+        <file>pics/menu.svg</file>
+        <file>pics/profit-report.svg</file>
+        <file>pics/settings.svg</file>
+        <file>AddOrder.qml</file>
+        <file>Menu.qml</file>
+        <file>Stats.qml</file>
+        <file>Settings.qml</file>
+        <file>BadgeMenuItem.qml</file>
+        <file>pics/filadelfia.jpg</file>
+        <file>pics/gold_dragon.jpg</file>
+        <file>pics/matrix.jpg</file>
+        <file>STextField.qml</file>
+        <file>DatePicker.qml</file>
+    </qresource>
+</RCC>
