@@ -2,6 +2,8 @@
 #include <QQmlApplicationEngine>
 #include "qmlglobaldata.h"
 
+#include "OrderFormValidator.h" // for test
+
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -26,6 +28,19 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
+
+// test begin
+    FormData data;
+    data.clientName = "Vlad";
+    data.clientsCount = 2;
+    data.expectedDate = QDate();
+    data.expectedTime = QTime();
+    data.phoneNumber = "0666122552";
+    data.isDevivery = false;
+
+    OrderFormValidator validator(data);
+    validator.validate();
+// test end
 
     return app.exec();
 }
