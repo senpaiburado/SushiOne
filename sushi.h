@@ -10,6 +10,8 @@ class Sushi : public QObject
 public:
     explicit Sushi(QObject *parent = nullptr);
 
+    void test() {}
+
 private:
     int m_id;
     QString m_name;
