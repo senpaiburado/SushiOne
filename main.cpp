@@ -30,16 +30,7 @@ int main(int argc, char *argv[])
     engine.load(url);
 
 // test begin
-    FormData data;
-    data.clientName = "Vlad";
-    data.clientsCount = 2;
-    data.expectedDate = QDate();
-    data.expectedTime = QTime();
-    data.phoneNumber = "0666122552";
-    data.isDevivery = false;
 
-    OrderFormValidator validator(data);
-    validator.validate();
 // test end
 
     return app.exec();

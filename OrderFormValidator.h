@@ -22,6 +22,7 @@ public:
     OrderFormValidator( const FormData &formData );
 
     bool validate();
+    ValidatorErrorPtr validateErr();
 
 private:
     FormData m_formData;

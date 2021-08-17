@@ -10,18 +10,22 @@ OrderFormValidator::OrderFormValidator( const FormData &formData )
 
 bool OrderFormValidator::validate()
 {
+    ValidatorErrorPtr err = validateErr();
+    if (err != nullptr)
+    {
+        qDebug() << "Error in " << err->validator() << ": " << err->description() << Qt::endl;
+        return false;
+    }
+    return true;
+}
+
+ValidatorErrorPtr OrderFormValidator::validateErr()
+{
     PhoneValidator phoneValidator(m_formData.phoneNumber);
     DateIsNotPastValidator dateValidator(m_formData.expectedDate);
     Validator validator;
 
     phoneValidator.setNext(&dateValidator);
     validator.setChainList(&phoneValidator);
-    Error *err = validator.isValid();
-    if (err != nullptr)
-    {
-        qDebug() << "Error in " << err->validator << ": " << err->description << Qt::endl;
-        delete err;
-        return false;
-    }
-    return true;
+    return validator.isValid();
 }

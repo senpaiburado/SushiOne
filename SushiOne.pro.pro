@@ -8,8 +8,8 @@ CONFIG += c++11
 
 SOURCES += \
         OrderFormValidator.cpp \
+        ValidatorDecorators.cpp \
         Validators.cpp \
-        main.cpp \
         qmlglobaldata.cpp \
         sushi.cpp
 
@@ -26,8 +26,32 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+#CONFIG += test
+
+
 HEADERS += \
     OrderFormValidator.h \
+    ValidatorDecorators.h \
     Validators.h \
     qmlglobaldata.h \
     sushi.h
+
+test{
+    message(Configuring test build...)
+
+    TEMPLATE = app
+    TARGET = SushiOneTests
+    QT += testlib
+
+    HEADERS += \
+        tests/ValidatorTest.h
+
+    SOURCES += \
+        tests/ValidatorTest.cpp
+}
+else{
+    TEMPLATE = app
+    TARGET = SushiOne
+
+    SOURCES += main.cpp \
+}
